@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  todo_service:
+    build:
+      context: ./todo_service
+    volumes:
+      - todo_data:/app/data
+    ports:
+      - "8000:80"
+
+  short_url_service:
+    build:
+      context: ./short_url_service
+    volumes:
+      - short_url_data:/app/data
+    ports:
+      - "8001:80"
+
+volumes:
+  todo_data:
+  short_url_data:
